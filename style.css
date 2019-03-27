@@ -59,7 +59,7 @@ blockquote:after { content: '"'; }
 #wakeUpTimeSelector, #lunchTimeSelector, #napTimeSelector {
   padding: 10px 0;
 }
-#partyTimeButton {
+#partyTimeButton, #endPartyButton {
   background-color: #222;
   width: 300px;
   font-family: 'Bungee', cursive;

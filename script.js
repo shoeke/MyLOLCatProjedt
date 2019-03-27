@@ -39,7 +39,14 @@ function loadPic(){
     viewerPic.src = "img/seize.jpg";
   }
 }
-
-
-//console.log(timeHour);
 loadPic();
+//show party pic when party button pushed.
+var button = document.getElementById("partyTimeButton");
+var viewerPic = document.getElementById("lolcat");
+function partyTime() {
+  viewerPic.src = "img/catParty.jpg";
+}
+function endPartyTime() {
+  loadPic();
+}
+//button.onclick = partyTime();
