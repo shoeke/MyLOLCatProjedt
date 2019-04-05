@@ -1,3 +1,6 @@
+//global variable for event window DOM
+var viewerPic = document.getElementById("lolcat");
+//Choose picture based on time
 window.onload = function loadClock(){
   var currentTime = new Date();
   var hour = currentTime.getHours();
@@ -9,7 +12,6 @@ window.onload = function loadClock(){
   var minutes = currentTime.getMinutes();
   minutes = "0" + minutes;
   minutes = minutes.slice(-2);
-//minutes = parseInt(minutes);
 //make 12 hour clock
   if (hour > 12) {
     hour = hour - 12;
@@ -22,12 +24,11 @@ window.onload = function loadClock(){
 }
 //have the photo change for morning, afternoon, night
 function loadPic(){
-  var timeHour = new Date().getHours();
-  var viewerPic = document.getElementById("lolcat");
+  var timeHour = new Date().getHours(); 
   var saying = document.getElementById("timeEvent");
 
   if (timeHour >= 23 || timeHour <= 5) {
-    saying.innerHTML = "Go and Sleep!"
+    //saying.innerHTML = "Go and Sleep!"
     viewerPic.src = "img/sleep.jpg";
   }
   if (timeHour >= 6 && timeHour <= 10) {
@@ -38,15 +39,18 @@ function loadPic(){
     //saying.innerHTML = "Seize the Day!!"
     viewerPic.src = "img/seize.jpg";
   }
+  else {
+    viewerPic.style.background = "#000";
+  }
 }
 loadPic();
 //show party pic when party button pushed.
+//set variable for button
 var button = document.getElementById("partyTimeButton");
-var viewerPic = document.getElementById("lolcat");
+//var viewerPic = document.getElementById("lolcat");
 function partyTime() {
   viewerPic.src = "img/catParty.jpg";
 }
 function endPartyTime() {
   loadPic();
 }
-//button.onclick = partyTime();
