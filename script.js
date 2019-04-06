@@ -1,9 +1,9 @@
 //global variable for event window DOM
 var viewerPic = document.getElementById("lolcat");
 //Choose picture based on time
+var currentTime = new Date();
+var hour = currentTime.getHours();
 window.onload = function loadClock(){
-  var currentTime = new Date();
-  var hour = currentTime.getHours();
   var ampm = "PM"
   if (currentTime.getHours() < 12) {
     ampm = "AM"
@@ -24,7 +24,7 @@ window.onload = function loadClock(){
 }
 //have the photo change for morning, afternoon, night
 function loadPic(){
-  var timeHour = new Date().getHours(); 
+  var timeHour = new Date().getHours();
   var saying = document.getElementById("timeEvent");
 
   if (timeHour >= 23 || timeHour <= 5) {
@@ -53,4 +53,11 @@ function partyTime() {
 }
 function endPartyTime() {
   loadPic();
+}
+
+//show a different picture when the clock time matches the time set for Wake Up, Lunch and Nap Time.
+var napTime = document.getElementById("napTimeSelector").value;
+console.log(document.getElementById("napTimeSelector").value);
+if (napTime == hour) {
+  viewerPic.src = "img/sleep.jpg";
 }
