@@ -18,7 +18,6 @@ window.onload = function loadClock(){
   }
 //concat time for clock
   var message = hour + ":" + minutes + " " + ampm;
-  console.log(message);
   var dispClock = document.getElementById("displayClock");
   dispClock.innerHTML = message;
 }
@@ -56,8 +55,16 @@ function endPartyTime() {
 }
 
 //show a different picture when the clock time matches the time set for Wake Up, Lunch and Nap Time.
-var napTime = document.getElementById("napTimeSelector").value;
-console.log(document.getElementById("napTimeSelector").value);
-if (napTime == hour) {
-  viewerPic.src = "img/sleep.jpg";
+var grabE = document.getElementById("wakeUpTimeSelector");
+
+grabE.addEventListener("change", timePic);
+
+function timePic() {
+  timeCheck = new Date().getHours();
+  console.log(grabE.value, timeCheck);
+
+  if (grabE.value == timeCheck) {
+  alert("YESSSSSSSSS");
+  viewerPic.src = "img/goodMorning.jpg";
+  }
 }
