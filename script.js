@@ -55,16 +55,44 @@ function endPartyTime() {
 }
 
 //show a different picture when the clock time matches the time set for Wake Up, Lunch and Nap Time.
+//Wake Up
 var grabE = document.getElementById("wakeUpTimeSelector");
+grabE.addEventListener("change", function() {
+  timeWake("img/goodMorning.jpg");
+});
 
-grabE.addEventListener("change", timePic);
-
-function timePic() {
+function timeWake(newPic) {
   timeCheck = new Date().getHours();
   console.log(grabE.value, timeCheck);
-
   if (grabE.value == timeCheck) {
-  alert("YESSSSSSSSS");
-  viewerPic.src = "img/goodMorning.jpg";
+  viewerPic.src = newPic;
+  }
+}
+
+//Lunch time
+var grabL = document.getElementById("lunchTimeSelector");
+grabL.addEventListener("change", function() {
+  timeEat("img/lunch.jpg");
+});
+
+function timeEat(newPic) {
+  timeCheck = new Date().getHours();
+  console.log(grabL.value, timeCheck);
+  if (grabL.value == timeCheck) {
+  viewerPic.src = newPic;
+  }
+}
+
+//Nap Time
+var grabN = document.getElementById("napTimeSelector");
+grabN.addEventListener("change", function() {
+  timeNap("img/sleep.jpg");
+});
+
+function timeNap(newPic) {
+  timeCheck = new Date().getHours();
+  console.log(grabN.value, timeCheck);
+  if (grabN.value == timeCheck) {
+  viewerPic.src = newPic;
   }
 }
